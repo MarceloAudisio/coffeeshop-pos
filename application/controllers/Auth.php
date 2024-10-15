@@ -22,11 +22,11 @@ class Auth extends CI_Controller {
         if( $this->form_validation->run() == FALSE ){
             $this->load->view('login',$this->datos);
         }else{
-            $this->load->model('usuario_model');
+            $this->load->model('usuarios_model');
             $usuario = set_value("usuario");
             $password = set_value("password");
-            if( $uid = $this->usuario_model->check_login($usuario, $password) ){
-                $u=$this->usuario_model->get_by_id($uid);
+            if( $uid = $this->usuarios_model->check_login($usuario, $password) ){
+                $u=$this->usuarios_model->get_by_id($uid);
                     $this->session->set_userdata("usuario_id",$uid);
                     $this->session->set_userdata("nombre", $u["nombre"]);
                     $this->session->set_userdata("rol_id", $u["rol_id"]);
@@ -50,11 +50,16 @@ class Auth extends CI_Controller {
         
         $this->form_validation->set_rules('usuario','Usuario', 'trim|strtolower|required|is_unique[usuarios.nombre]');
         $this->form_validation->set_rules('password','Contraseña','required');
+        $this->form_validation->set_rules('conf-password','Confirmación Contraseña','required|matches[password]');
         
         if( $this->form_validation->run() == FALSE ){
             $this->load->view('registrarse',$this->datos);
         }else{
-        
+            $this->load->model('usuarios_model');
+            $usuario=set_value("usuario");
+            $password=set_value("password");
+            $this->usuarios_model->nuevo($usuario,$password,2);
+            redirect("auth/login");
         }
     }
 }
