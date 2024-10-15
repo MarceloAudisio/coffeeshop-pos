@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2024 a las 14:17:18
+-- Tiempo de generación: 15-10-2024 a las 13:59:02
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 7.4.33
 
@@ -72,6 +72,25 @@ CREATE TABLE `clientes` (
   `apellido` text NOT NULL,
   `cuit` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `configuraciones`
+--
+
+CREATE TABLE `configuraciones` (
+  `configuracion_id` int(11) NOT NULL,
+  `clave` text NOT NULL,
+  `valor` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `configuraciones`
+--
+
+INSERT INTO `configuraciones` (`configuracion_id`, `clave`, `valor`) VALUES
+(1, 'AUTO_REGISTRO', '0');
 
 -- --------------------------------------------------------
 
@@ -210,6 +229,12 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`cliente_id`);
 
 --
+-- Indices de la tabla `configuraciones`
+--
+ALTER TABLE `configuraciones`
+  ADD PRIMARY KEY (`configuracion_id`);
+
+--
 -- Indices de la tabla `empresas`
 --
 ALTER TABLE `empresas`
@@ -285,6 +310,12 @@ ALTER TABLE `atributosxarticulos`
 --
 ALTER TABLE `clientes`
   MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `configuraciones`
+--
+ALTER TABLE `configuraciones`
+  MODIFY `configuracion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `empresas`
