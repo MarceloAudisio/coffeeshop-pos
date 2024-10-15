@@ -30,7 +30,7 @@ class Auth extends CI_Controller {
                     $this->session->set_userdata("usuario_id",$uid);
                     $this->session->set_userdata("nombre", $u["nombre"]);
                     $this->session->set_userdata("rol_id", $u["rol_id"]);
-                    redirect('');
+                    redirect('facturas/index');
             }else{
 
                 redirect('auth/login');
