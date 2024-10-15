@@ -24,7 +24,7 @@
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Iniciar Sesión</button>
                 </form>
                 <p class="text-center mt-3"><a href="register.php">¿No tienes una cuenta? Regístrate aquí.</a></p>
             </div>
