@@ -87,3 +87,6 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 //Constantes Globales del sistema
 defined('TITULO_APP')      OR define('TITULO_APP', "Coffee Shop");
+
+//Permite a los usuarios autoregistrarse al sistema
+defined('AUTO_REGISTRO')      OR define('AUTO_REGISTRO', true);

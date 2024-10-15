@@ -26,7 +26,9 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-block mt-3">Iniciar Sesión</button>
                 </form>
-                <p class="text-center mt-3"><a href="register.php">¿No tienes una cuenta? Regístrate aquí.</a></p>
+                <?php if($auto_registro){ ?>
+                    <p class="text-center mt-3"><a href="<?=site_url("auth/registrarse")?>">¿No tienes una cuenta? Regístrate aquí.</a></p>
+                <?php } ?>
             </div>
         </div>
     </div>

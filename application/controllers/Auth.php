@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
+    
+    public $datos=array();
+    public function __construct() {
+        parent::__construct();
+        $valor=intval($this->configuracion->obtener_clave("AUTO_REGISTRO"));
+        $this->datos["auto_registro"]=($valor and AUTO_REGISTRO)?true:false;
+    }
+
 	public function index()
 	{
 		redirect('auth/login');
@@ -12,7 +20,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('nombre','Usuario', 'trim|strtolower|required');
         $this->form_validation->set_rules('password','Contraseña','required');
         if( $this->form_validation->run() == FALSE ){
-            $this->load->view('login');
+            $this->load->view('login',$this->datos);
         }else{
             $this->load->model('usuario_model');
             $usuario = set_value("usuario");
@@ -33,4 +41,10 @@ class Auth extends CI_Controller {
 	{
 		redirect('auth/index');
 	}
+
+    public function registrarse(){
+        if($this->datos["auto_registro"]==false){
+            redirect('auth');
+        }
+    }
 }
