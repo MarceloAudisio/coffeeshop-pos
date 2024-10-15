@@ -14,12 +14,13 @@
         <div class="row justify-content-center" style="margin-top: 100px;">
             <div class="col-md-4">
                 <h2 class="text-center">Iniciar Sesión</h2>
-                <form method="POST" action="">
+                <form method="POST" action="<?php echo site_url("auth/login");?>">
                     <div class="form-group">
                         <label for="username">Nombre de Usuario</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>
                     <div class="form-group">
+
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
