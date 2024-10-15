@@ -46,5 +46,15 @@ class Auth extends CI_Controller {
         if($this->datos["auto_registro"]==false){
             redirect('auth');
         }
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('usuario','Usuario', 'trim|strtolower|required|is_unique[usuarios.nombre]');
+        $this->form_validation->set_rules('password','Contraseña','required');
+        
+        if( $this->form_validation->run() == FALSE ){
+            $this->load->view('registrarse',$this->datos);
+        }else{
+        
+        }
     }
 }
