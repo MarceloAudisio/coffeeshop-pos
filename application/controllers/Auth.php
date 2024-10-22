@@ -32,13 +32,15 @@ class Auth extends CI_Controller {
                     $this->session->set_userdata("rol_id", $u["rol_id"]);
                     redirect('facturas/index');
             }else{
-
+                $this->session->set_flashdata('OP','INCORRECTO');
                 redirect('auth/login');
             }
         }
 	}
 	public function salir()
 	{
+        $this->session->sess_destroy();
+        
 		redirect('auth/index');
 	}
 

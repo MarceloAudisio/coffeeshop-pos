@@ -5,6 +5,10 @@ class Facturas extends CI_Controller {
 	public $datos=array();
 	public function __construct() {	
 		parent::__construct();
+		if(!$this->session->userdata('usuario_id')){
+			$this->session->set_flashdata('OP','PROHIBIDO');
+			redirect("auth/login");
+		}
 	
 	}
 	public function index()
