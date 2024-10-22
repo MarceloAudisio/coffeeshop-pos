@@ -34,13 +34,15 @@
                                     <p class="mb-0">Precio</p>
                                 </div>
                                 <div class="col-auto">
-                                    <button type="button" class="btn btn-danger remove-product">Eliminar</button>
+                                    <button type="button" class="btn btn-danger remove-product"><i class="bi bi-trash-fill"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" id="add-product">Agregar otro producto</button>
-                    <button type="submit" class="btn btn-success btn-block mt-3">Facturar</button>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" id="add-product">Agregar otro producto</button>
+                        <button type="submit" class="btn btn-success btn-block mt-3">Facturar</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -70,7 +72,7 @@
                 <p class="mb-0">Precio</p>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-danger remove-product">Eliminar</button>
+                <button type="button" class="btn btn-danger remove-product"><i class="bi bi-trash-fill"></i></button>
             </div>
         `;
 
