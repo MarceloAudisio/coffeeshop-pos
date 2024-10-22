@@ -10,7 +10,17 @@
           <a class="nav-link active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-person-circle"></i> <?php echo ucfirst($this->session->userdata("nombre"));?>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<?php echo site_url("auth/salir"); ?>">Salir</a></li>
+            
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

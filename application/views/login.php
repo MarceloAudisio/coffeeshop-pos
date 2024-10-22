@@ -14,6 +14,28 @@
         <div class="row justify-content-center" style="margin-top: 100px;">
             <div class="col-md-4">
                 <h2 class="text-center">Iniciar Sesión</h2>
+                <?php 
+                if($this->session->flashdata("OP")){
+                    switch ($this->session->flashdata("OP")) {
+                        case 'PROHIBIDO':
+                            ?>
+                            <div class="alert alert-info">
+                                Tiene que identificarse primero!
+                            </div>
+                            <?php
+                            break;
+                        case 'INCORRECTO':
+                            ?>
+                            <div class="alert alert-info">
+                                Usuario / Contraseña Incorrecta
+                            </div>
+                            <?php
+                            break;
+                        
+                        default:
+                    }    
+                }
+                ?>
                 <form method="POST" action="<?php echo site_url("auth/login");?>">
                     <div class="form-group">
                         <label for="username">Nombre de Usuario</label>
